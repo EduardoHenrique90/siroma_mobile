@@ -1,0 +1,48 @@
+<ion-header >
+  <ion-navbar>
+    <ion-title>
+      Lista de Usuarios
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-list>    
+          <ion-item *ngFor="let u of users">
+              <ion-avatar item-left>
+                  <img src="https://image.tmdb.org/t/p/w92"/>
+              </ion-avatar>
+              <h2>{{u.name}}</h2>
+              <p class="item-description">{{u.email}}</p>
+              <button ion-button  outline item-end (click)="openModal()">Editar</button>
+              <button ion-button color="danger" outline item-end (click)="deleteUser(u.id)">Deletar</button>
+          </ion-item>
+      </ion-list>  
+    <!-- <ion-card >
+        <ion-card-content >
+          <ion-card-title>
+              {{u.name}} 
+            </ion-card-title>
+
+            <ul>
+              <li>COD {{u.id}} </li>
+              <li>{{u.email}} </li>
+              <li>{{u.cpf}} </li>
+              <li>{{u.born_date}} </li>
+            </ul>  
+            <button ion-button color="danger" (click)="deleteUser(u.id)" block>Deletar</button>
+            <button ion-button  type="submit" block>Editar</button>
+        </ion-card-content>
+      </ion-card> -->
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+             pullingIcon="arrow-dropdown"
+             pullingText="Pull to refresh"
+             refreshingSpinner="circles"
+             refreshingText="Refreshing...">
+          </ion-refresher-content>
+       </ion-refresher> 
+      <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll> -->
+</ion-content>

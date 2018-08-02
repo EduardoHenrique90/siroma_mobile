@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Inserir Usuario
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<h2>Add User</h2>
+  <form (ngSubmit)="saveUser()">
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="user.name" name="name" placeholder="Nome do Usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="email" [(ngModel)]="user.email" name="email" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="password"[(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="user.cpf" name="cpf" placeholder="CPF"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="date" [(ngModel)]="user.born_date"name="born_date" placeholder="Data de Nascimento"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button type="submit" block>Add User</button>
+  </form>
+</ion-content>
